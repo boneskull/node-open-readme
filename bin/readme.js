@@ -10,13 +10,10 @@ var yargs = require('yargs'),
   path = require('path'),
   basename = path.basename,
   findup = require('findup-sync'),
-  glob = require('glob'),
+  Glob = require('glob').Glob,
   open = require('open'),
   Q = require('q'),
-  spawn = require('child_process').spawn,
   format = require('util').format,
-
-  PREFERRED = 'README.md',
 
   fatal,
   info,
@@ -47,7 +44,7 @@ argv = yargs
     'Open the README of an installed NPM module in its default application.',
     'If no MODULE_NAME specified, tries to open the first README it can find.',
     '',
-    '$0 [-d|--deep] [-s|--shallow] [-v|--verbose] [MODULE_NAME]'
+    '$0 [-d|--deep] [-s|--shallow] [-v|--verbose] [-g|--global] [MODULE_NAME]'
   ].join('\n'))
 
   .boolean('d')
@@ -112,14 +109,22 @@ var configure = function configure() {
 
 configure()
   .then(function (readme_glob) {
+    var dfrd = Q.defer();
     info('Matching glob "%s"...', readme_glob);
-    return Q.nfcall(glob, readme_glob);
+    Glob(readme_glob)
+      .on('match', function (file) {
+        this.abort();
+        info('Found %s', file);
+        dfrd.resolve(file);
+      })
+      .on('end', function () {
+        dfrd.reject('Could not find any README files.  Write one?');
+      })
+      .on('error', fatal);
+    return dfrd.promise;
   })
-  .done(function (files) {
-    if (!files.length) {
-      fatal('Could not find any README files.  Write one?');
-    }
-    open(files.indexOf(PREFERRED) >= 0 ? PREFERRED : files[0]);
+  .done(function (file) {
+    open(file);
   }, function (err) {
     fatal(err);
   });
