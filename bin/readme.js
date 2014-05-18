@@ -111,7 +111,7 @@ configure()
   .then(function (readme_glob) {
     var dfrd = Q.defer();
     info('Matching glob "%s"...', readme_glob);
-    Glob(readme_glob)
+    Glob(readme_glob, {nocase: true})
       .on('match', function (file) {
         this.abort();
         info('Found %s', file);
