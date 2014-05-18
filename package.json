@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/boneskull/node-readme-osx.git"
+    "url": "https://github.com/boneskull/node-open-readme.git"
   },
   "author": {
     "name": "Christopher Hiller",
@@ -26,5 +26,6 @@
   },
   "bin": {
     "readme": "bin/readme.js"
-  }
+  },
+  "main": "bin/readme.js"
 }
