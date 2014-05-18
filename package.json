@@ -1,0 +1,30 @@
+{
+  "name": "open-readme",
+  "version": "0.1.0",
+  "description": "Easily open a README.md for an installed module with default application",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boneskull/node-readme-osx.git"
+  },
+  "author": {
+    "name": "Christopher Hiller",
+    "email": "chiller@badwing.com",
+    "url": "http://boneskull.github.io"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "yargs": "^1.2.2",
+    "glob": "^3.2.9",
+    "findup-sync": "^0.1.3",
+    "open": "0.0.5",
+    "npmconf": "^1.0.0",
+    "q": "^1.0.1"
+  },
+  "bin": {
+    "readme": "bin/readme.js"
+  }
+}
