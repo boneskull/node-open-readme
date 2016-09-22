@@ -17,11 +17,11 @@
   },
   "preferGlobal": true,
   "dependencies": {
-    "yargs": "^1.2.2",
-    "glob": "^3.2.9",
-    "findup-sync": "^0.1.3",
+    "yargs": "^5.0.0",
+    "glob": "^7.1.0",
+    "findup-sync": "^0.4.2",
     "open": "0.0.5",
-    "npmconf": "^1.0.0",
+    "npmconf": "^2.1.2",
     "q": "^1.0.1"
   },
   "bin": {
