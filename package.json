@@ -1,6 +1,6 @@
 {
   "name": "open-readme",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Easily open a README.md for an installed module with default application",
   "license": "MIT",
   "repository": {
