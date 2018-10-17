@@ -17,12 +17,12 @@
   },
   "preferGlobal": true,
   "dependencies": {
-    "yargs": "^1.2.2",
-    "glob": "^5.0.15",
     "findup-sync": "^0.3.0",
-    "open": "0.0.5",
+    "glob": "^5.0.15",
     "npmconf": "^2.0.9",
-    "q": "^1.0.1"
+    "opn": "^5.4.0",
+    "q": "^1.0.1",
+    "yargs": "^1.2.2"
   },
   "bin": {
     "readme": "bin/readme.js"

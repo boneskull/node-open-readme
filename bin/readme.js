@@ -11,7 +11,7 @@ var yargs = require('yargs'),
   basename = path.basename,
   findup = require('findup-sync'),
   Glob = require('glob').Glob,
-  open = require('open'),
+  open = require('opn'),
   Q = require('q'),
   format = require('util').format,
 
